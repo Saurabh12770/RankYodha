@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock - BPSC Civil Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Mock</div>
+        <nav>
+            <button class="nav-btn">UPSC</button>
+            <button class="nav-btn active">BPSC</button>
+            <button class="nav-btn">SSC CGL</button>
+            <button class="nav-btn">Railway</button>
+            <button class="nav-btn">Bank</button>
+        </nav>
+        <div class="header-right">
+            <button id="themeToggle"><i class="fas fa-moon"></i></button>
+            <button id="loginBtn">Login</button>
+            <span id="userNameDisplay" style="display:none; margin-left:10px; font-weight:bold;"></span>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- Dashboard -->
+        <section id="dashboard" class="view-section active">
+            <h2>Select Subject (BPSC)</h2>
+            <div class="subject-grid">
+                <div class="subject-card active-subject" data-subject="geography"><i class="fa-solid fa-earth-americas"></i><span>Geography</span></div>
+                <div class="subject-card" data-subject="history"><i class="fa-solid fa-landmark"></i><span>History</span></div>
+                <div class="subject-card" data-subject="polity"><i class="fa-solid fa-scale-balanced"></i><span>Polity</span></div>
+                <div class="subject-card" data-subject="economy"><i class="fa-solid fa-chart-line"></i><span>Economy</span></div>
+                <div class="subject-card" data-subject="science"><i class="fa-solid fa-flask"></i><span>Science</span></div>
+                <div class="subject-card" data-subject="current"><i class="fa-regular fa-newspaper"></i><span>Current Affairs</span></div>
+                <div class="subject-card" data-subject="environment"><i class="fa-solid fa-leaf"></i><span>Environment</span></div>
+                <div class="subject-card" data-subject="bihar"><i class="fa-solid fa-map-location-dot"></i><span>Bihar Special</span></div>
+            </div>
+
+            <div class="test-selection" id="testSelection" style="display:none;">
+                <h3>Available Mock Tests</h3>
+                <div class="test-grid" id="testGrid"></div>
+            </div>
+        </section>
+
+        <!-- Loading Screen -->
+        <section id="loading-screen" class="view-section" style="text-align: center; padding: 100px;">
+            <div class="spinner"></div>
+            <h3>Generating Test...</h3>
+        </section>
+
+        <!-- Exam Engine -->
+        <section id="exam-engine" class="view-section">
+            <div class="exam-header tcs-header">
+                <h3 id="exam-title">BPSC - Geography Mock Test</h3>
+                <div class="timer-box">
+                    <span class="timer-label">Time Left:</span> 
+                    <span class="timer-val" id="countdown">90:00</span>
+                </div>
+            </div>
+            
+            <div class="exam-body tcs-layout">
+                <div class="main-left">
+                    <div class="question-area">
+                        <div class="question-header">
+                            <span class="q-number">Question No. <span id="q-no">1</span></span>
+                        </div>
+                        <div class="question-divider"></div>
+                        <div class="question-text" id="q-text">Loading question...</div>
+                        <div class="options-container" id="options-container"></div>
+                    </div>
+                    
+                    <div class="action-buttons-wrap">
+                        <div class="btn-group-left">
+                            <button class="tcs-btn btn-mark" id="btn-mark">Mark for Review & Next</button>
+                            <button class="tcs-btn btn-clear" id="btn-clear">Clear Response</button>
+                        </div>
+                        <div class="btn-group-right">
+                            <button class="tcs-btn btn-prev" id="btn-prev">Previous</button>
+                            <button class="tcs-btn btn-save-next" id="btn-next">Save & Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="palette-area">
+                    <div class="candidate-profile">
+                        <img src="https://via.placeholder.com/80" alt="Candidate" class="profile-pic">
+                        <div class="profile-info">
+                            <div class="cand-name" id="cand-name">John Doe</div>
+                        </div>
+                    </div>
+                    <div class="palette-stats tcs-stats">
+                        <div class="stat-row">
+                            <div class="stat-item"><div class="s-box answered-box"><span id="c-answered">0</span></div> Answered</div>
+                            <div class="stat-item"><div class="s-box not-answered-box"><span id="c-not-answered">0</span></div> Not Answered</div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item"><div class="s-box not-visited-box"><span id="c-not-visited">100</span></div> Not Visited</div>
+                            <div class="stat-item"><div class="s-box marked-box"><span id="c-marked">0</span></div> Marked for Review</div>
+                        </div>
+                        <div class="stat-row single">
+                            <div class="stat-item"><div class="s-box answered-marked-box"><span id="c-answered-marked">0</span><div class="green-dot"></div></div> Answered & Marked for Review (will be considered for evaluation)</div>
+                        </div>
+                    </div>
+                    <div class="palette-header">
+                        <h4>Choose a Question</h4>
+                    </div>
+                    <div class="palette-grid" id="palette-grid"></div>
+                    <div class="submit-wrap">
+                        <button class="tcs-submit-button" id="btn-submit">Submit Test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result -->
+        <section id="result-screen" class="view-section">
+            <h2>Test Summary</h2>
+            <div class="result-stats">
+                <div class="stat-box">Score: <span id="r-score">0</span>/100</div>
+                <div class="stat-box">Percentage: <span id="r-percent">0</span>%</div>
+                <div class="stat-box correct">Correct: <span id="r-correct">0</span></div>
+                <div class="stat-box incorrect">Incorrect: <span id="r-incorrect">0</span></div>
+                <div class="stat-box unattempted">Unattempted: <span id="r-unattempted">0</span></div>
+            </div>
+            <button class="btn btn-primary" id="btn-review">Review Answers</button>
+            <button class="btn btn-secondary" id="btn-home">Back to Home</button>
+            
+            <div id="review-container" style="display:none; margin-top:20px;"></div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPass" placeholder="Password" required>
+            <button class="btn btn-primary" id="doLogin">Login</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-sect">
+                <h4>Contact</h4>
+                <p>📞 +91 9142357466</p>
+                <p>📧 example@gmail.com</p>
+            </div>
+            <div class="footer-sect">
+                <h4>About</h4>
+                <p>Professional Exam Mock Platform</p>
+            </div>
+            <div class="footer-sect">
+                <h4>Links</h4>
+                <p>Privacy Policy | Terms</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Mock Platform. All rights reserved.</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
