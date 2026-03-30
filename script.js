@@ -57,7 +57,7 @@ function renderTestGrid() {
 async function startTest(testName, subject) {
     showView('loading');
     try {
-        const response = await fetch(`data/${subject}.json`);
+        const response = await fetch(`${subject}.json`);
         const data = await response.json();
         
         let shuffled = shuffleArray([...data]);
