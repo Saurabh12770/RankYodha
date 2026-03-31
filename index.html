@@ -2,165 +2,429 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mock - BPSC Civil Services</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RankYodha – Free Mock Tests for Competitive Exams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">RankYodha</div>
+        <div class="logo">
+            <i class="fas fa-crown"></i> Rank<span>Yodha</span>
+        </div>
         <nav>
-            <button class="nav-btn">UPSC</button>
-            <button class="nav-btn active">BPSC</button>
-            <button class="nav-btn">SSC CGL</button>
-            <button class="nav-btn">Railway</button>
-            <button class="nav-btn">Bank</button>
+            <div class="dropdown">
+                <button class="nav-btn">Exams <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">UPSC</a>
+                    <a href="#" class="active">BPSC</a>
+                    <a href="#">SSC CGL</a>
+                    <a href="#">Railway</a>
+                    <a href="#">Bank</a>
+                </div>
+            </div>
+            <a href="#" class="nav-link">Tests</a>
+            <a href="#" class="nav-link">Leaderboard</a>
+            <a href="#" class="nav-link">Resources</a>
         </nav>
         <div class="header-right">
-            <button id="themeToggle"><i class="fas fa-moon"></i></button>
+            <button id="themeToggle" aria-label="Dark mode"><i class="fas fa-moon"></i></button>
+            <button id="aboutBtn" class="about-nav-btn"><i class="fas fa-info-circle"></i> About</button>
             <button id="loginBtn">Login</button>
-            <span id="userNameDisplay" style="display:none; margin-left:10px; font-weight:bold;"></span>
+            <span id="userNameDisplay" class="user-name"></span>
         </div>
     </header>
 
-    <main id="app-container">
-        <!-- Dashboard -->
+    <main>
+        <!-- Dashboard Section (Homepage) -->
         <section id="dashboard" class="view-section active">
-            <h2>Select Subject (BPSC)</h2>
-            <div class="subject-grid">
-                <div class="subject-card active-subject" data-subject="geography"><i class="fa-solid fa-earth-americas"></i><span>Geography</span></div>
-                <div class="subject-card" data-subject="history"><i class="fa-solid fa-landmark"></i><span>History</span></div>
-                <div class="subject-card" data-subject="polity"><i class="fa-solid fa-scale-balanced"></i><span>Polity</span></div>
-                <div class="subject-card" data-subject="economy"><i class="fa-solid fa-chart-line"></i><span>Economy</span></div>
-                <div class="subject-card" data-subject="science"><i class="fa-solid fa-flask"></i><span>Science</span></div>
-                <div class="subject-card" data-subject="current"><i class="fa-regular fa-newspaper"></i><span>Current Affairs</span></div>
-                <div class="subject-card" data-subject="environment"><i class="fa-solid fa-leaf"></i><span>Environment</span></div>
-                <div class="subject-card" data-subject="bihar"><i class="fa-solid fa-map-location-dot"></i><span>Bihar Special</span></div>
+            <!-- Hero Section with Animated Background -->
+            <div class="hero">
+                <div class="hero-bg-animation"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">🔥 #1 Free Mock Test Platform</div>
+                    <h1>Unlock Your Potential with <span>RankYodha</span></h1>
+                    <p>Unlimited, real‑exam mock tests for BPSC, UPSC, SSC, Railway, Bank – absolutely free. Practice anywhere, anytime.</p>
+                    <div class="hero-stats">
+                        <div class="stat stat-counter" data-count="240">0+</div>
+                        <div class="stat stat-counter" data-count="10000">0+</div>
+                        <div class="stat">Real Exam Pattern</div>
+                        <div class="stat">Instant Analytics</div>
+                    </div>
+                    <button class="btn-cta" id="scrollToSubjects"><i class="fas fa-arrow-down"></i> Start Your Journey</button>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-icon">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <p class="hero-quote">"Practice like never before"</p>
+                </div>
             </div>
 
-            <div class="test-selection" id="testSelection" style="display:none;">
-                <h3>Available Mock Tests</h3>
+            <!-- Subject Grid -->
+            <h2 class="section-title">📚 Choose Your Subject (BPSC)</h2>
+            <div class="subject-grid">
+                <div class="subject-card active-subject" data-subject="geography">
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <span>Geography</span>
+                </div>
+                <div class="subject-card" data-subject="history">
+                    <i class="fa-solid fa-landmark"></i>
+                    <span>History</span>
+                </div>
+                <div class="subject-card" data-subject="polity">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <span>Polity</span>
+                </div>
+                <div class="subject-card" data-subject="economy">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Economy</span>
+                </div>
+                <div class="subject-card" data-subject="science">
+                    <i class="fa-solid fa-flask"></i>
+                    <span>Science</span>
+                </div>
+                <div class="subject-card" data-subject="current">
+                    <i class="fa-regular fa-newspaper"></i>
+                    <span>Current Affairs</span>
+                </div>
+                <div class="subject-card" data-subject="environment">
+                    <i class="fa-solid fa-leaf"></i>
+                    <span>Environment</span>
+                </div>
+                <div class="subject-card" data-subject="bihar">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>Bihar Special</span>
+                </div>
+            </div>
+
+            <div class="test-selection" id="testSelection" style="display: none;">
+                <h3><i class="fas fa-vial"></i> Available Mock Tests (30 Full Length)</h3>
                 <div class="test-grid" id="testGrid"></div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="how-it-works">
+                <h2 class="section-title">How <span>RankYodha</span> Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                        <h3>1. Sign Up Free</h3>
+                        <p>Create your account in seconds – no credit card required.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>2. Choose Subject</h3>
+                        <p>Pick your exam and start practicing with real‑pattern tests.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>3. Analyze & Improve</h3>
+                        <p>Get detailed performance reports and focus on weak areas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us (Enhanced) -->
+            <div class="features">
+                <h2 class="section-title">Why Choose <span>RankYodha</span>?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-infinity"></i>
+                        <h3>Unlimited Attempts</h3>
+                        <p>No restrictions – take as many tests as you need.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Detailed Analytics</h3>
+                        <p>Instant scores, percentile, and question‑wise review.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Optimized</h3>
+                        <p>Seamless experience on phones, tablets, and desktops.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Real Exam Timer</h3>
+                        <p>Strict timing with warnings, just like the real exam.</p>
+                    </div>
+                </div>
+                <div class="features-bonus">
+                    <div class="bonus-item">
+                        <i class="fas fa-gem"></i>
+                        <h4>30+ Full-Length Tests per Subject</h4>
+                        <p>Comprehensive coverage of syllabus with latest pattern.</p>
+                    </div>
+                    <div class="bonus-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Real-time Performance Tracking</h4>
+                        <p>Identify strengths and weaknesses instantly.</p>
+                    </div>
+                    <div class="bonus-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Community of Warriors</h4>
+                        <p>Join 10,000+ aspirants preparing together.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Tests / Latest Mock Tests -->
+            <div class="trending-tests">
+                <h2 class="section-title">🔥 Trending Mock Tests</h2>
+                <div class="trending-grid" id="trendingGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Expert Tips Section -->
+            <div class="expert-tips">
+                <h2 class="section-title">💡 Expert Tips for Success</h2>
+                <div class="tips-slider" id="tipsSlider">
+                    <div class="tip">
+                        <i class="fas fa-clock"></i>
+                        <p>Time management is key – attempt easier questions first.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Review your mistakes after each test to avoid repetition.</p>
+                    </div>
+                    <div class="tip">
+                        <i class="fas fa-brain"></i>
+                        <p>Consistent practice beats last-minute cramming.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h2 class="section-title">What Aspirants Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <i class="fas fa-quote-left"></i>
+                        <p>RankYodha changed my preparation. The free tests are exactly like the real exam. I cleared BPSC with rank 12!</p>
+                        <div class="user">- Anjali S., BPSC Topper</div>
+                    </div>
+                    <div class="testimonial">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Unlimited tests without paying a single rupee. The detailed analysis helped me improve my weak areas.</p>
+                        <div class="user">- Ravi K., UPSC Aspirant</div>
+                    </div>
+                    <div class="testimonial">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Finally, a platform that understands aspirants. No ads, no premium – just pure practice. Highly recommended!</p>
+                        <div class="user">- Priya M., SSC CGL</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Loading Screen -->
-        <section id="loading-screen" class="view-section" style="text-align: center; padding: 100px;">
-            <div class="spinner"></div>
-            <h3>Generating Test...</h3>
+        <section id="loading-screen" class="view-section">
+            <div class="loader-container">
+                <div class="spinner"></div>
+                <h3>Generating your Test...</h3>
+                <p>Please wait, we're preparing the best questions for you</p>
+            </div>
         </section>
 
         <!-- Exam Engine -->
         <section id="exam-engine" class="view-section">
-            <div class="exam-header tcs-header">
-                <h3 id="exam-title">BPSC - Geography Mock Test</h3>
+            <div class="exam-header">
+                <h3 id="exam-title">RankYodha Mock Test</h3>
                 <div class="timer-box">
-                    <span class="timer-label">Time Left:</span> 
+                    <i class="far fa-hourglass-half"></i>
+                    <span class="timer-label">Time Left:</span>
                     <span class="timer-val" id="countdown">90:00</span>
                 </div>
             </div>
-            
-            <div class="exam-body tcs-layout">
-                <div class="main-left">
+            <div class="exam-body">
+                <div class="question-panel">
                     <div class="question-area">
-                        <div class="question-header">
-                            <span class="q-number">Question No. <span id="q-no">1</span></span>
+                        <div class="q-meta">
+                            <span class="q-number">Question <span id="q-no">1</span></span>
                         </div>
-                        <div class="question-divider"></div>
-                        <div class="question-text" id="q-text">Loading question...</div>
+                        <div class="question-text" id="q-text">Loading...</div>
                         <div class="options-container" id="options-container"></div>
                     </div>
-                    
-                    <div class="action-buttons-wrap">
-                        <div class="btn-group-left">
-                            <button class="tcs-btn btn-mark" id="btn-mark">Mark for Review & Next</button>
-                            <button class="tcs-btn btn-clear" id="btn-clear">Clear Response</button>
+                    <div class="action-buttons">
+                        <div class="btn-group">
+                            <button class="btn-mark" id="btn-mark"><i class="fa-regular fa-flag"></i> Mark for Review & Next</button>
+                            <button class="btn-clear" id="btn-clear"><i class="fa-solid fa-eraser"></i> Clear Response</button>
                         </div>
-                        <div class="btn-group-right">
-                            <button class="tcs-btn btn-prev" id="btn-prev">Previous</button>
-                            <button class="tcs-btn btn-save-next" id="btn-next">Save & Next</button>
+                        <div class="btn-group">
+                            <button class="btn-prev" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                            <button class="btn-save" id="btn-next">Save & Next <i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <div class="palette-area">
-                    <div class="candidate-profile">
-                        <img src="https://via.placeholder.com/80" alt="Candidate" class="profile-pic">
-                        <div class="profile-info">
-                            <div class="cand-name" id="cand-name">John Doe</div>
+                <div class="palette-panel">
+                    <div class="profile-card">
+                        <img src="https://ui-avatars.com/api/?background=6366f1&color=fff&bold=true&name=RY" alt="User" class="avatar">
+                        <div>
+                            <div class="name" id="cand-name">Aspirant</div>
+                            <div class="role">RankYodha Warrior</div>
                         </div>
                     </div>
-                    <div class="palette-stats tcs-stats">
-                        <div class="stat-row">
-                            <div class="stat-item"><div class="s-box answered-box"><span id="c-answered">0</span></div> Answered</div>
-                            <div class="stat-item"><div class="s-box not-answered-box"><span id="c-not-answered">0</span></div> Not Answered</div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-box answered"></div>
+                            <span>Answered <strong id="c-answered">0</strong></span>
                         </div>
-                        <div class="stat-row">
-                            <div class="stat-item"><div class="s-box not-visited-box"><span id="c-not-visited">100</span></div> Not Visited</div>
-                            <div class="stat-item"><div class="s-box marked-box"><span id="c-marked">0</span></div> Marked for Review</div>
+                        <div class="stat-item">
+                            <div class="stat-box not-answered"></div>
+                            <span>Not Answered <strong id="c-not-answered">0</strong></span>
                         </div>
-                        <div class="stat-row single">
-                            <div class="stat-item"><div class="s-box answered-marked-box"><span id="c-answered-marked">0</span><div class="green-dot"></div></div> Answered & Marked for Review (will be considered for evaluation)</div>
+                        <div class="stat-item">
+                            <div class="stat-box not-visited"></div>
+                            <span>Not Visited <strong id="c-not-visited">100</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-box marked"></div>
+                            <span>Marked <strong id="c-marked">0</strong></span>
+                        </div>
+                        <div class="stat-item full-width">
+                            <div class="stat-box answered-marked"></div>
+                            <span>Answered & Marked <strong id="c-answered-marked">0</strong> (evaluated)</span>
                         </div>
                     </div>
                     <div class="palette-header">
-                        <h4>Choose a Question</h4>
+                        <i class="fas fa-th"></i> Question Palette
                     </div>
                     <div class="palette-grid" id="palette-grid"></div>
-                    <div class="submit-wrap">
-                        <button class="tcs-submit-button" id="btn-submit">Submit Test</button>
-                    </div>
+                    <button class="submit-btn" id="btn-submit"><i class="fas fa-check-double"></i> Submit Test</button>
                 </div>
             </div>
         </section>
 
-        <!-- Result -->
+        <!-- Result Section -->
         <section id="result-screen" class="view-section">
-            <h2>Test Summary</h2>
-            <div class="result-stats">
-                <div class="stat-box">Score: <span id="r-score">0</span>/100</div>
-                <div class="stat-box">Percentage: <span id="r-percent">0</span>%</div>
-                <div class="stat-box correct">Correct: <span id="r-correct">0</span></div>
-                <div class="stat-box incorrect">Incorrect: <span id="r-incorrect">0</span></div>
-                <div class="stat-box unattempted">Unattempted: <span id="r-unattempted">0</span></div>
+            <div class="result-container">
+                <h2><i class="fas fa-chart-simple"></i> Test Performance</h2>
+                <div class="result-cards">
+                    <div class="result-card score"><span>Score</span><strong id="r-score">0</strong>/100</div>
+                    <div class="result-card percent"><span>Percentage</span><strong id="r-percent">0</strong>%</div>
+                    <div class="result-card correct"><span>Correct</span><strong id="r-correct">0</strong></div>
+                    <div class="result-card incorrect"><span>Incorrect</span><strong id="r-incorrect">0</strong></div>
+                    <div class="result-card unattempted"><span>Unattempted</span><strong id="r-unattempted">0</strong></div>
+                </div>
+                <div class="result-actions">
+                    <button class="btn-primary" id="btn-review"><i class="fa-regular fa-eye"></i> Review Answers</button>
+                    <button class="btn-secondary" id="btn-home"><i class="fa-solid fa-home"></i> Back to Home</button>
+                </div>
+                <div id="review-container" style="display: none;"></div>
             </div>
-            <button class="btn btn-primary" id="btn-review">Review Answers</button>
-            <button class="btn btn-secondary" id="btn-home">Back to Home</button>
-            
-            <div id="review-container" style="display:none; margin-top:20px;"></div>
         </section>
     </main>
 
-    <!-- Modal -->
+    <!-- Login Modal -->
     <div class="modal" id="loginModal">
-        <div class="modal-content">
+        <div class="modal-content glass">
             <span class="close-modal" id="closeLogin">&times;</span>
-            <h2>Login</h2>
-            <input type="email" id="loginEmail" placeholder="Email" required>
-            <input type="password" id="loginPass" placeholder="Password" required>
-            <button class="btn btn-primary" id="doLogin">Login</button>
+            <h2><i class="fas fa-user-astronaut"></i> Welcome Back</h2>
+            <input type="email" id="loginEmail" placeholder="Email Address" autocomplete="email">
+            <input type="password" id="loginPass" placeholder="Password">
+            <button class="btn-primary" id="doLogin">Start Free Practice</button>
+        </div>
+    </div>
+
+    <!-- About Modal (Rich & Detailed) -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content about-modal">
+            <span class="close-modal" id="closeAbout">&times;</span>
+            <div class="about-inner">
+                <div class="founder-section">
+                    <img src="founder.jpeg" alt="Saurabh Kumar" onerror="this.src='https://ui-avatars.com/api/?background=6366f1&color=fff&size=120&name=Saurabh+K'">
+                    <h2>Saurabh Kumar</h2>
+                    <p class="title">Founder & Creator | RankYodha</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i> +91 9135791602</p>
+                        <p><i class="fas fa-envelope"></i> saurabhkumar12770@gmail.com</p>
+                    </div>
+                </div>
+                <div class="mission-section">
+                    <h3><i class="fas fa-bullhorn"></i> My Story</h3>
+                    <p>I started RankYodha with a simple belief: <strong>every aspirant deserves equal opportunity</strong>. While preparing for competitive exams, I saw how expensive mock test series create an unfair barrier. Many talented students can't afford them. I decided to build a platform that offers <strong>realistic, high-quality mock tests for free</strong> — forever.</p>
+                    <p>With RankYodha, you get <strong>30+ full-length tests per subject</strong>, a real exam interface, detailed analytics, and a community of warriors. My mission is to help you practice unlimited, gain confidence, and crack your dream exam without spending a single rupee.</p>
+                    <div class="highlight">🚀 "Your rank is my reward — practice free, win big."</div>
+                </div>
+                <div class="values-section">
+                    <h3><i class="fas fa-heart"></i> Our Values</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 100% Free Forever</li>
+                        <li><i class="fas fa-check-circle"></i> Real Exam Experience</li>
+                        <li><i class="fas fa-check-circle"></i> Constant Improvement</li>
+                        <li><i class="fas fa-check-circle"></i> Community Driven</li>
+                    </ul>
+                </div>
+                <div class="timeline">
+                    <h3><i class="fas fa-timeline"></i> Journey</h3>
+                    <div class="timeline-item">
+                        <span>2024</span>
+                        <p>RankYodha launched with 5 subjects</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span>2025</span>
+                        <p>Crossed 10,000 active users</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span>2026</span>
+                        <p>30+ tests per subject & growing</p>
+                    </div>
+                </div>
+                <div class="footer-note">
+                    <i class="fas fa-crown"></i> Dedicated to every hardworking aspirant
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-sect">
+            <div class="footer-col">
+                <h4><i class="fas fa-crown"></i> RankYodha</h4>
+                <p>Free. Unlimited. Realistic Mock Tests.</p>
+                <p>Making quality education accessible to all.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="#">BPSC Tests</a></p>
+                <p><a href="#">UPSC Tests</a></p>
+                <p><a href="#">SSC Tests</a></p>
+                <p><a href="#">Railway Tests</a></p>
+                <p><a href="#">Bank Tests</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <p><a href="#">Blog</a></p>
+                <p><a href="#">Study Materials</a></p>
+                <p><a href="#">Video Tutorials</a></p>
+                <p><a href="#">Success Stories</a></p>
+            </div>
+            <div class="footer-col">
                 <h4>Contact</h4>
-                <p>📞 +91 9142357466</p>
-                <p>📧 example@gmail.com</p>
-            </div>
-            <div class="footer-sect">
-                <h4>About</h4>
-                <p>Professional Exam Mock Platform</p>
-            </div>
-            <div class="footer-sect">
-                <h4>Links</h4>
-                <p>Privacy Policy | Terms</p>
+                <p>📞 +91 9135791602</p>
+                <p>📧 saurabhkumar12770@gmail.com</p>
+                <p>🌐 @RankYodha</p>
+                <div class="newsletter">
+                    <p>Subscribe for updates:</p>
+                    <input type="email" placeholder="Your email">
+                    <button>Subscribe</button>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 Mock Platform. All rights reserved.</div>
+        <div class="footer-bottom">
+            <p>© 2026 RankYodha – Created by Saurabh Kumar. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
